@@ -164,8 +164,101 @@
 
 //esercizi
 //1) scrivere una funzione che dato un numero se è positivo lo moltiplichi per due
+
+function twice(num){
+    if(num>=0)
+        return num*2;
+    return NaN;
+}
+
 //2) scrivere una funzione che data una stringa restituisca la sua versione maiuscola
+
+function toUpper(text){
+    return text.toUpperCase();
+}
+
 //3) scrivere una funzione che data una stringa mi restituisca vero se è più lunga di 10 caratteri altrimenti restituisca falso
+
+function lengthChecker(text){
+    return text.length>10;
+}
 //4) scrivere una funzione pura che restituisca la scacchiera
+
+function chessboard(size)
+    {
+    let row='';
+    for (let i = 0; i < size; i++) 
+        {
+        for (let j = 0; j < size; j++) 
+            {
+            if (i%2===0) 
+                if (j%2===0) 
+                    row+='#';
+                 else
+                    row+=' ';    
+             else if (j%2!=0) 
+                row+='#';
+             else
+                row+=' '; 
+            }
+        row+='\n';
+        }
+    return row;
+    }
+
 //5) scrivere una funzione che dato un numero restituisca una stringa con la logica FizzBuzz
+
+function fizzBuzz(num)
+    {
+    let ris='';
+    if(num%3===0 && num%5===0)
+        ris= 'FizzBuzz';
+     else if(num%3===0)
+        ris= 'Fizz';
+     else if(num%5===0)
+        ris= 'buzz';
+     else
+        ris= num;
+    return ris;
+    }
+
+
 //6) scrivere una funzione che data una stringa restituisca una stringa composta solo dai caratteri dispari dell'originale
+
+function strOdd(str)
+    {
+    let ris='';
+    if(typeof str!='string')
+        return 'inserisci una stringa vera';
+    for (let i = 0; i < str.length; i++)
+        if(i%2!=0)
+            ris+=str[i];
+    return ris;
+    }
+
+
+console.log(twice(5));
+console.log(toUpper('mammaMiaoOO1'));
+console.log(chessboard(8));
+console.log(fizzBuzz(2));
+console.log(fizzBuzz(9));
+console.log(fizzBuzz(135));
+console.log(fizzBuzz(50));
+console.log(strOdd('0123456789'));
+console.log(min(100,99));
+
+function min(n1, n2)
+    {
+    if (n1<n2) 
+        return n1;
+     else
+        return n2;
+    }
+
+
+
+
+
+
+
+
