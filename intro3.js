@@ -166,22 +166,32 @@
 //1) scrivere una funzione che dato un numero se è positivo lo moltiplichi per due
 
 function twice(num){
-    if(num>=0)
-        return num*2;
-    return NaN;
-}
+    // if(num>=0)
+    //     return num*2;
+    // return NaN;
 
+    return num>=0?num*2:NaN;
+}
+const twiceLambda = (num) => num>=0?num*2:NaN;
 //2) scrivere una funzione che data una stringa restituisca la sua versione maiuscola
 
 function toUpper(text){
-    return text.toUpperCase();
+    if (typeof text === 'string') {
+        return text.toUpperCase();
+    }
+     else
+        return '';
+   
 }
 
+const toUpperlambda = (text) => typeof text === 'string' ? text.toUpperCase(): '';
 //3) scrivere una funzione che data una stringa mi restituisca vero se è più lunga di 10 caratteri altrimenti restituisca falso
 
 function lengthChecker(text){
     return text.length>10;
 }
+
+const lengthCheckerLambda = (text) => text.length>10;
 //4) scrivere una funzione pura che restituisca la scacchiera
 
 function chessboard(size)
@@ -229,7 +239,7 @@ function strOdd(str)
     {
     let ris='';
     if(typeof str!='string')
-        return 'inserisci una stringa vera';
+        return '';
     for (let i = 0; i < str.length; i++)
         if(i%2!=0)
             ris+=str[i];
@@ -249,16 +259,69 @@ console.log(min(100,99));
 
 function min(n1, n2)
     {
-    if (n1<n2) 
-        return n1;
-     else
-        return n2;
+    // if (n1<n2) 
+    //     return n1;
+    //  else
+    //     return n2;
+
+    return n1<n2 ? n1:n2;
     }
 
 
+//scrivere una funzione che sommi tutti i numeri in un range prestabilito
 
 
+function sumRange(start, end)
+    {   
+    let sum=0;
+    for (let i = start; i <= end; i++) 
+        sum+=i;
+    return sum;
+    }
+    
+
+console.log(sumRange(0,3));
+console.log(sumRange(-2,2));
+
+function doubleAndPow3(selectedNumber){
+    const double = selectedNumber * 2;
+    const pow3 = double ** 3;
+    return pow3;
+}
 
 
+function recSumRange(start, end)
+    {
+    if(start>end)
+       return NaN;
+    if(start===end)
+        return start;  
+    return start+= recSumRange(start+1, end);
+    }
 
+console.log(recSumRange(6,3));
+console.log(recSumRange(0,4));
+console.log(recSumRange(0,4));
+console.log(recSumRange(0,4));
+console.log(recSumRange(6,6));
+console.log(recSumRange(3,6));
+
+
+function isEven(n)
+    {
+    if (n===0) 
+        return true;
+    if(n===1)
+        return false;
+    if(n<0)
+        return null;
+    return isEven(n-2);
+    }
+
+console.log(isEven(3));
+console.log(isEven(23));
+console.log(isEven(0));
+console.log(isEven(1));
+console.log(isEven(50));
+console.log(isEven(-6));
 
