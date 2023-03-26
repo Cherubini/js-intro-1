@@ -116,5 +116,37 @@ return counter;
 console.log(countBs('mi piace la BABBANAs'));
 
 function countChar(str, charToFind){
-    
+    let counter=0;
+    for (let i = 0; i < str.length; i++) {
+        const element = str[i];
+        if (element===charToFind.toUpperCase()||element===charToFind.toLowerCase()) {
+            counter++;
+        }
+    }
+    return counter;
 }
+
+
+console.log(countChar('mi piace la BABBANAs','B'));
+console.log(countChar('mi piace la BABBANAs','b'));
+console.log(countChar('mi piace la BABBANAs','a'));
+
+function isEven(n)
+    {
+    if (n===0) 
+        return true;
+    if(n===1 || n===-1)
+        return false;
+    if(n<0)
+        return isEven(n+2);
+     else
+        return isEven(n-2);
+    }
+
+console.log(isEven(3));
+console.log(isEven(23));
+console.log(isEven(0));
+console.log(isEven(1));
+console.log(isEven(50));
+console.log(isEven(-23));
+console.log(isEven(-6));
