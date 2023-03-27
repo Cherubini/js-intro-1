@@ -230,7 +230,7 @@ console.log(newTopolino.yob); //1950
 //FILTER (filtrare un array significa avere un array di inizio e averne uno in uscita <= all'array iniziale con solo i valori che volevamo.)
 //1)scrivere una funzione che dato un array di numeri restituisce un array con i numeri maggiori di 0
 
-const numbers = [100, -23, 0, -234, 1001, 1, 34, -12];
+const number = [100, -23, 0, -234, 1001, 1, 34, -12];
 
 function filterNegative(array){
     const tempArray = [];
@@ -244,7 +244,7 @@ function filterNegative(array){
     return tempArray;
 }
 
-console.log(filterNegative(numbers)); // [100, 0, 1001, 1, 34]
+console.log(filterNegative(number)); // [100, 0, 1001, 1, 34]
 
 
 
@@ -261,7 +261,7 @@ function multiplyAllElementsBy2(array) {
 }
 
 
-console.log(multiplyAllElementsBy2(numbers)); //[ 200, -46, 0, -468, 2002, 2, 68, -24 ]
+console.log(multiplyAllElementsBy2(number)); //[ 200, -46, 0, -468, 2002, 2, 68, -24 ]
 
 
 
@@ -278,24 +278,258 @@ function sumAllElements(array) {
 }
 
 
-console.log(sumAllElements(numbers));
+console.log(sumAllElements(number));
+console.log('ESERCIZI 27/3');
 
 
 //-------------------------------------------------------------------
-//es 27-3
-//1) scrivere una funzione che prende in input un array di numeri e restituisce un array di stringhe in logica fizzbuzz. (IL NUMERO DEVE ESSERE STRING) MAP
-//2)scrivere una funzione che prende in input un array di numeri e restituisce un array di numeri in cui i positivi sono trasformati in negativi e viceversa 
+//ESERCIZI 27/03
 
-//3)scrivere una funzione che prende in input un array di stringhe e restituisce un array di numeri con la lunghezza delle stringhe
+//1) scrivere una funzione che prende in input un array di numeri è restituisce un array di stringhe in logica FizzBuzz (map)
 
-//4)scrivere una funzione che prende in input un array di stringhe e restituisce solo quelle che contengono la lettera z
+const numbers = [3, 5, 15, 8, 12, 2];
 
-//5)scrivere una funzione che prende in input un array di numeri e restituisce solo pari
+function convertArrayInFizzBuzz(array){
+    const tempArray=[];
+    for (let i = 0; i < array.length; i++) {
+        const element = array[i];
+        if (element%3===0&&element%5===0)
+            tempArray.push('fizzbuzz');
+        else if (element%3===0)
+            tempArray.push('fizz');
+        else if (element%5===0)
+            tempArray.push('buzz');
+        else
+            tempArray.push(element+'');
+    }
+    return tempArray;
+}
 
-//6)scrivere una funzione che prende in input un array di stringhe e restituisce una stringa composta dalle iniziali
+console.log(convertArrayInFizzBuzz(numbers)) //['Fizz', 'Buzz', 'FizzBuzz', '8', 'Fizz', '2']
+
+//2) scrivere una funzione che prende in input un array di numeri è restituisce un array di numeri in cui i positivi sono trasformati in negativi e viceversa (map)
+
+const numbers1 = [-3, 5, 15, -8, 12, 2, 0];
+
+function invertElements(array){
+const tempArray=[];
+for (let i = 0; i < array.length; i++) {
+    const element = array[i];
+    tempArray.push(element*-1);
+    }
+return tempArray;
+}
+
+console.log(invertElements(numbers1)) //[3, -5, -15, 8, -12, -2, 0] -0?
+
+//3) scrivere una funzione che prende in input un array di stringhe è restituisce un array di numeri con la lunghezza delle stringhe (map)
+
+const strings = ['pippo', 'pluto', 'qui'];
+
+function lengthOfElements(array){
+    const tempArray=[];
+    for (let i = 0; i < array.length; i++) {
+        const element = array[i];
+        tempArray.push(element.length);
+    }
+    return tempArray;
+}
+
+console.log(lengthOfElements(strings)) //[5, 5, 3]
+
+
+//4) scrivere una funzione che prende in input un array di stringhe è restituisce solo quelle che contengono la lettera z (filter)
+
+const strings2 = ['pippo', 'pluto', 'qui', 'zapotec'];
+
+function onlyElementsWithZ(array){
+    const tempArray=[];
+    for (let i = 0; i < array.length; i++) {
+        const element = array[i];
+        if (element.includes('z')) {
+            tempArray.push(element);
+        }
+    }
+    return tempArray;
+}
+
+console.log(onlyElementsWithZ(strings2)) //['zapotec']
+
+//5) scrivere una funzione che prende in input un array di numeri e restituisce tutti i numeri pari (filter)
+
+const numbers2 = [-3, 5, 15, -8, 12, 2, 0];
+
+function onlyEven(array){
+    const tempArray=[];
+    for (let i = 0; i < array.length; i++) {
+        const element = array[i];
+        if (element%2===0) {
+            tempArray.push(element);            
+        }
+    }
+    return tempArray;
+}
+
+console.log(onlyEven(numbers2)) //[8, -12, -2, 0]????
+
+//6) scrivere una funzione che prende in input un array di stringhe restituisce una stringa composta dalle iniziali
+//(reduce)
+const strings3 = ['pippo', 'osvaldo', 'paperino'];
+
+function sumFirstChar(array){
+    let tempStr='';
+    for (let i = 0; i < array.length; i++) {
+        const element = array[i];
+        tempStr+=element[0];
+        }
+    return tempStr;
+}
+
+console.log(sumFirstChar(strings3)) //'pop'
 
 //7) scrivere una funzione che prende in input un array di numeri e restituisce il maggiore
 
+const numbers3 = [-3, 5, 15, -8, 12, 2, 0];
+const numbers4 = [];
+
+
+function maxElement(array){
+    let tempMax=null;
+    for (let i = 0; i < array.length; i++) {
+        const element = array[i];
+        if (tempMax===null || tempMax<element) {
+            tempMax=element;
+        }
+    }
+    return tempMax;
+}
+
+console.log(maxElement(numbers3)) //15
 
 
 
+function range(start, end) {
+    let  arrayRange=[];
+    for (let i = start; i <= end; i++) {;
+        arrayRange.push(i);
+    }
+    return arrayRange;
+}
+
+
+function sum(array) {
+    let tempSum=null;
+    for (let i = 0; i < array.length; i++) {
+        const element = array[i];
+        tempSum+=element;
+    }    
+    return tempSum;
+}
+
+console.log(sum(range(1, 10)));
+
+function reverseArray(array) {
+    let tempArray=[];
+    for (let i = array.length-1; i >= 0 ; i--) {
+        const element = array[i];
+        tempArray.push(element);
+    }
+    return tempArray;
+}
+
+console.log(reverseArray([0,2,3,4,5]));
+
+let list1 = {
+    value: 1,
+    rest: {
+      value: 2,
+      rest: {
+        value: 3,
+        rest: null
+      }
+    }
+  };
+
+  
+let list2 = {
+    value: 1,
+    rest: {
+      value: 2,
+      rest: {
+        value: 4,
+        rest: null
+      }
+    }
+  };
+
+
+
+
+ function arrayToList(array) {
+     let tempArray=array;
+     let tempList=new List();
+     if(array.length===1){
+         tempList['value']=tempArray[0];
+         return tempList;
+     } 
+     if(array.length>1){
+         tempList['value']=tempArray.pop();
+         tempList['rest']=arrayToList(tempArray)
+     }
+     return tempList;
+ }
+
+function List(value, rest) {
+    this.value=value;
+    this.rest=rest;
+}
+
+
+console.log(arrayToList([1,2,3]));
+
+function listToArray(list) {
+    let tempArray=[];
+    for (let node = list; node; node = node.rest) {
+        tempArray.push(node['value']);
+    }
+    return tempArray;
+}
+
+console.log(listToArray(list1));
+
+function nth(list,numToFind) {
+    let index=undefined;
+    let i=0;
+    for (let node = list; node; node = node.rest, i++) {
+        if (node['value']===numToFind) {
+            index=i;
+            break;
+        }
+        
+    }
+    return index;
+}
+
+console.log(nth(list1, 2));
+
+function deepEquals(value1, value2) {
+    if(typeof value1 != typeof value2)
+        return false;
+    if (typeof value1 ==='object') {
+        if(value1===null && value2 === null)
+            return true;
+        let value1Keys = Object.keys(value1);
+        let value2Keys = Object.keys(value2);
+        for (let i = 0; i <value1Keys.length && i<value2Keys; i++) {
+
+            if(!deepEquals(value1[value1Keys[i]],value2[value2Keys[i]])){
+
+                }
+                return false;
+        }
+        return true;
+    }
+    return value1 === value2;
+}
+
+console.log(deepEquals(list2,list1));
