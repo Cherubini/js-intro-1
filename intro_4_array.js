@@ -88,6 +88,8 @@ function stringLengthMinusSpace(str) {
             length++;
     }
     return length;
+    //const textWithoutSpaces = text.replaceAll(' ','');
+    //return textWithoutSpaces.length;                                                                                                               
 }
 console.log(stringLengthMinusSpace('mi piace la nutella, il gelato con la panna, e le merendine in quantità'));
 
@@ -150,3 +152,4 @@ console.log(isEven(1));
 console.log(isEven(50));
 console.log(isEven(-23));
 console.log(isEven(-6));
+
