@@ -456,18 +456,29 @@ let list2 = {
     rest: {
       value: 2,
       rest: {
-        value: 4,
+        value: 3,
         rest: null
       }
     }
   };
+
+let list3 = {
+value: 1,
+rest: {
+    value: 2,
+    rest: {
+    value: 4,
+    rest: null
+    }
+}
+};
 
 
 
 
  function arrayToList(array) {
      let tempArray=array;
-     let tempList=new List();
+     let tempList=new list();
      if(array.length===1){
          tempList['value']=tempArray[0];
          return tempList;
@@ -478,11 +489,6 @@ let list2 = {
      }
      return tempList;
  }
-
-function List(value, rest) {
-    this.value=value;
-    this.rest=rest;
-}
 
 
 console.log(arrayToList([1,2,3]));
@@ -509,27 +515,58 @@ function nth(list,numToFind) {
     }
     return index;
 }
+console.log('nth: '+ nth(list1, 2));
 
-console.log(nth(list1, 2));
-
-function deepEquals(value1, value2) {
-    if(typeof value1 != typeof value2)
-        return false;
-    if (typeof value1 ==='object') {
-        if(value1===null && value2 === null)
-            return true;
-        let value1Keys = Object.keys(value1);
-        let value2Keys = Object.keys(value2);
-        for (let i = 0; i <value1Keys.length && i<value2Keys; i++) {
-
-            if(!deepEquals(value1[value1Keys[i]],value2[value2Keys[i]])){
-
-                }
-                return false;
-        }
-        return true;
-    }
-    return value1 === value2;
+function list(value, rest) {
+    this.value=value;
+    this.rest=rest;
 }
 
-console.log(deepEquals(list2,list1));
+
+function nth2(listC, numToFind){
+    if(listC===null)
+        return -100;
+    if(listC['value']===numToFind)
+        return 0;
+     else
+        return 1+nth2(listC['rest'], numToFind);
+}
+
+
+console.log('nth ricorsiva: '+ nth2(list3, 3));
+
+// function deepEquals(value1, value2) {
+//     if(typeof value1 != typeof value2)
+//         return false;
+//     if (typeof value1 ==='object') {
+//         if(value1===null && value2 === null)
+//             return true;
+//          else if(value1===null || value2 === null)
+//             return false;
+        
+//         let value1Keys = Object.keys(value1);
+//         let value2Keys = Object.keys(value2);
+//         for (let i = 0; i <value1Keys.length && i<value2Keys.length; i++) {
+//             if(!deepEquals(value1[value1Keys[i]],value2[value2Keys[i]])){
+//                 return false;
+//                 }
+                
+//         }
+//         return true;
+//     }
+//     return value1 === value2;
+// }
+
+// console.log(deepEquals(list2,list1)); //true
+// console.log(deepEquals(list3,list1)); //false
+// console.log(deepEquals(list2,null)); //false
+// console.log(deepEquals(null,null)); //true
+// console.log(deepEquals(3,3)); //true
+// console.log(deepEquals(3,4)); //false
+// console.log(deepEquals(4,'mimi')); //false
+// console.log(deepEquals('mimi','mimi')); //true
+// console.log(deepEquals(true,true)); //true
+// console.log(deepEquals(true,false)); //false
+
+
+

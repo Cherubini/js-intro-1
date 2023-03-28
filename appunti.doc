@@ -1,0 +1,4 @@
+sembra un tipo ok
+
+una variabile può contenere una funzione. funzioni lambda ad esempio. Perché sono utili? perché così si possono usare funzioni come parametri.
+Le funzioni di ordine superiore sono le funzioni che creano altre funzioni.
