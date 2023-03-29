@@ -171,15 +171,6 @@ let arrayStr= ['ciao', 'pippo', 'topolino', 'ciao mondo'];
 res=arrayStr.filter(aS =>aS.length<=6)
 console.log(res.map(n=>n.length))
 
-function supp(n) {
-    console.log(n)
-}
-
-function funz(f) {
-    f(2);
-    
-}
-funz(supp);
 
 function createMultiplicator(myNumber) {
     function multiply(selectedNumber) {
@@ -211,8 +202,17 @@ const add3 = applyTwice(applyTwice(add1))(10);
 console.log(add2(5)); //7
 console.log(add3); //14
 
+numbers=[0, 1, 2, 3, 4, 5];
 
 //Map
-numbers.map((element)=> 0 != element*2);
-numbers.filter((element)=>element%2===0);
-number. reduce((previousElement, currentElement)=>previousElement+currentElement,0)
+let help1 =numbers.map((element)=> 0 != element*2);
+let help2 =numbers.filter((element)=>element%2===0);
+let help3 =numbers. reduce((previousElement, currentElement)=>previousElement+currentElement,0)
+
+console.log('help1');
+console.log(help1);
+console.log('help2');
+console.log(help2);
+console.log('help3');
+console.log(help3);
+
