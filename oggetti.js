@@ -315,7 +315,10 @@ function invertElements(array){
 const tempArray=[];
 for (let i = 0; i < array.length; i++) {
     const element = array[i];
-    tempArray.push(element*-1);
+    if (element!=0)
+        tempArray.push(element*-1);
+     else
+        tempArray.push(element);
     }
 return tempArray;
 }
@@ -326,10 +329,17 @@ console.log(invertElements(numbers1)) //[3, -5, -15, 8, -12, -2, 0] -0?
 
 const strings = ['pippo', 'pluto', 'qui'];
 
+// function lengthOfElements(array){
+//     const tempArray=[];
+//     for (let i = 0; i < array.length; i++) {
+//         const element = array[i];
+//         tempArray.push(element.length);
+//     }
+//     return tempArray;
+// }
 function lengthOfElements(array){
     const tempArray=[];
-    for (let i = 0; i < array.length; i++) {
-        const element = array[i];
+    for (let element of array) {
         tempArray.push(element.length);
     }
     return tempArray;
@@ -379,8 +389,9 @@ const strings3 = ['pippo', 'osvaldo', 'paperino'];
 function sumFirstChar(array){
     let tempStr='';
     for (let i = 0; i < array.length; i++) {
-        const element = array[i];
-        tempStr+=element[0];
+        //const element = array[i];
+        //tempStr+=element[0];
+        tempStr+=array[i][0]
         }
     return tempStr;
 }
@@ -394,10 +405,10 @@ const numbers4 = [];
 
 
 function maxElement(array){
-    let tempMax=null;
+    let tempMax=-Infinity;
     for (let i = 0; i < array.length; i++) {
         const element = array[i];
-        if (tempMax===null || tempMax<element) {
+        if (tempMax<element) {
             tempMax=element;
         }
     }
@@ -475,6 +486,13 @@ rest: {
 
 
 
+function list(value, rest) {
+    this.value=value;
+    this.rest=rest;
+}
+
+
+
 
  function arrayToList(array) {
      let tempArray=array;
@@ -517,15 +535,10 @@ function nth(list,numToFind) {
 }
 console.log('nth: '+ nth(list1, 2));
 
-function list(value, rest) {
-    this.value=value;
-    this.rest=rest;
-}
-
 
 function nth2(listC, numToFind){
     if(listC===null)
-        return -100;
+        return -Infinity  ;
     if(listC['value']===numToFind)
         return 0;
      else
@@ -569,4 +582,16 @@ console.log('nth ricorsiva: '+ nth2(list3, 3));
 // console.log(deepEquals(true,false)); //false
 
 
+const numbers5 = [-3, 5, 15, -8, 12, 2, 0];
 
+function positiveSum(arr) {
+    let tempArr=[];
+    tempArr=arr.filter((num)=>num>0);
+    let sum=null;
+    for(let n of tempArr){
+      sum+=n;
+    }
+    return sum;
+  }
+
+console.log(positiveSum(numbers5));

@@ -170,3 +170,49 @@ console.log('map e filter di libreria')
 let arrayStr= ['ciao', 'pippo', 'topolino', 'ciao mondo'];
 res=arrayStr.filter(aS =>aS.length<=6)
 console.log(res.map(n=>n.length))
+
+function supp(n) {
+    console.log(n)
+}
+
+function funz(f) {
+    f(2);
+    
+}
+funz(supp);
+
+function createMultiplicator(myNumber) {
+    function multiply(selectedNumber) {
+        return selectedNumber*myNumber;
+    }
+    return multiply;
+}
+
+let thatsFreakmymind=createMultiplicator(2);
+thatsFreakmymind(3); //6
+
+console.log(createMultiplicator(5)(4))// selectedNumber=4; myNumber=5; result=20
+
+//scrivere una funzione che prende una funzione e ritorna una funzione
+
+
+
+function applyTwice(myFunction) {
+    return (input) => myFunction(myFunction(input));
+}
+
+function add1(selectedNumber) {
+    return ++selectedNumber;
+}
+
+const add2 = applyTwice(add1);
+const add3 = applyTwice(applyTwice(add1))(10);
+
+console.log(add2(5)); //7
+console.log(add3); //14
+
+
+//Map
+numbers.map((element)=> 0 != element*2);
+numbers.filter((element)=>element%2===0);
+number. reduce((previousElement, currentElement)=>previousElement+currentElement,0)
