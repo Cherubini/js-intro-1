@@ -121,7 +121,7 @@ function countChar(str, charToFind){
     let counter=0;
     for (let i = 0; i < str.length; i++) {
         const element = str[i];
-        if (element===charToFind.toUpperCase()||element===charToFind.toLowerCase()) {
+        if (element===charToFind) {
             counter++;
         }
     }

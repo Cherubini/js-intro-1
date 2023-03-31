@@ -204,7 +204,7 @@ console.log(add3); //14
 
 numbers=[0, 1, 2, 3, 4, 5];
 
-//Map
+//Map, filter reduce
 let help1 =numbers.map((element)=> 0 != element*2);
 let help2 =numbers.filter((element)=>element%2===0);
 let help3 =numbers. reduce((previousElement, currentElement)=>previousElement+currentElement,0)

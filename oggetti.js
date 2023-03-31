@@ -228,7 +228,7 @@ console.log(newTopolino.yob); //1950
 
 
 //FILTER (filtrare un array significa avere un array di inizio e averne uno in uscita <= all'array iniziale con solo i valori che volevamo.)
-//1)scrivere una funzione che dato un array di numeri restituisce un array con i numeri maggiori di 0
+//1)scrivere una funzione che dato un array di numeri nextituisce un array con i numeri maggiori di 0
 
 const number = [100, -23, 0, -234, 1001, 1, 34, -12];
 
@@ -285,7 +285,7 @@ console.log('ESERCIZI 27/3');
 //-------------------------------------------------------------------
 //ESERCIZI 27/03
 
-//1) scrivere una funzione che prende in input un array di numeri è restituisce un array di stringhe in logica FizzBuzz (map)
+//1) scrivere una funzione che prende in input un array di numeri è nextituisce un array di stringhe in logica FizzBuzz (map)
 
 const numbers = [3, 5, 15, 8, 12, 2];
 
@@ -307,7 +307,7 @@ function convertArrayInFizzBuzz(array){
 
 console.log(convertArrayInFizzBuzz(numbers)) //['Fizz', 'Buzz', 'FizzBuzz', '8', 'Fizz', '2']
 
-//2) scrivere una funzione che prende in input un array di numeri è restituisce un array di numeri in cui i positivi sono trasformati in negativi e viceversa (map)
+//2) scrivere una funzione che prende in input un array di numeri è nextituisce un array di numeri in cui i positivi sono trasformati in negativi e viceversa (map)
 
 const numbers1 = [-3, 5, 15, -8, 12, 2, 0];
 
@@ -325,7 +325,7 @@ return tempArray;
 
 console.log(invertElements(numbers1)) //[3, -5, -15, 8, -12, -2, 0] -0?
 
-//3) scrivere una funzione che prende in input un array di stringhe è restituisce un array di numeri con la lunghezza delle stringhe (map)
+//3) scrivere una funzione che prende in input un array di stringhe è nextituisce un array di numeri con la lunghezza delle stringhe (map)
 
 const strings = ['pippo', 'pluto', 'qui'];
 
@@ -348,7 +348,7 @@ function lengthOfElements(array){
 console.log(lengthOfElements(strings)) //[5, 5, 3]
 
 
-//4) scrivere una funzione che prende in input un array di stringhe è restituisce solo quelle che contengono la lettera z (filter)
+//4) scrivere una funzione che prende in input un array di stringhe è nextituisce solo quelle che contengono la lettera z (filter)
 
 const strings2 = ['pippo', 'pluto', 'qui', 'zapotec'];
 
@@ -365,7 +365,7 @@ function onlyElementsWithZ(array){
 
 console.log(onlyElementsWithZ(strings2)) //['zapotec']
 
-//5) scrivere una funzione che prende in input un array di numeri e restituisce tutti i numeri pari (filter)
+//5) scrivere una funzione che prende in input un array di numeri e nextituisce tutti i numeri pari (filter)
 
 const numbers2 = [-3, 5, 15, -8, 12, 2, 0];
 
@@ -382,7 +382,7 @@ function onlyEven(array){
 
 console.log(onlyEven(numbers2)) //[8, -12, -2, 0]????
 
-//6) scrivere una funzione che prende in input un array di stringhe restituisce una stringa composta dalle iniziali
+//6) scrivere una funzione che prende in input un array di stringhe nextituisce una stringa composta dalle iniziali
 //(reduce)
 const strings3 = ['pippo', 'osvaldo', 'paperino'];
 
@@ -398,7 +398,7 @@ function sumFirstChar(array){
 
 console.log(sumFirstChar(strings3)) //'pop'
 
-//7) scrivere una funzione che prende in input un array di numeri e restituisce il maggiore
+//7) scrivere una funzione che prende in input un array di numeri e nextituisce il maggiore
 
 const numbers3 = [-3, 5, 15, -8, 12, 2, 0];
 const numbers4 = [];
@@ -542,7 +542,7 @@ function nth2(listC, numToFind){
     if(listC['value']===numToFind)
         return 0;
      else
-        return 1+nth2(listC['rest'], numToFind);
+        return 1+nth2(listC['next'], numToFind);
 }
 
 
@@ -595,3 +595,18 @@ function positiveSum(arr) {
   }
 
 console.log(positiveSum(numbers5));
+
+
+
+/**
+ * le linked list sono scatole che si collegano le une alle altre, ogni elemento conosce soltanto il suo secondo. Vantaggi: più facile da essere modificata, perché deviare la lista linkata è più facile di modificare un array
+ * un albero è un'insieme di elementi dotati di figli (successivi).
+ * simile all' albero, c'è una struttura che permette un figlio di essere collegato al padre e viceversa (i grafi). Ogni elemento/oggetto si chiama nodo. Ogni nodo ha un array di nodi all'interno che lista i nodi a lui connessi. A volte anche gli archi portano un informazione, quindi anche loro sono elementi/oggetti
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ */
